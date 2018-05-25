@@ -1,0 +1,27 @@
+.top-buffer {
+    margin-top: 40px;
+}
+.bottom-buffer {
+    margin-bottom: 40px;
+}
+.mix-buffer {
+    margin: 40px 0;
+}
+
+#full-list {
+    display: none;
+}
+code {
+    padding: 0 15px;
+}
+#counter {
+    float: right;
+    text-align: right;
+}
+
+#result {
+    outline: none;
+    min-height: 300px;
+    max-height: 600px;
+    overflow: scroll;
+}
