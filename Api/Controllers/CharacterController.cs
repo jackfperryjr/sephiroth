@@ -38,7 +38,7 @@ namespace Api.Controllers
             return Ok(character);
         }   
 
-        //POST new api/character
+        //POST create new api/character
         [HttpPost]
         public IActionResult Create([FromBody] Character character)
         {

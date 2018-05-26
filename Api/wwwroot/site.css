@@ -7,21 +7,63 @@
 .mix-buffer {
     margin: 40px 0;
 }
-
-#full-list {
-    display: none;
+body {
+    font-family: 'Harmattan', sans-serif;
+}
+.title-card {
+    background-color:#eceff1;
+    color:#000; 
+    height:200px; 
+    width: 100%;
+}
+#logo {
+    width: 40px;
+}
+h1 {
+    padding-top: 20px;
+}
+h7 {
+    font-weight: lighter;
+    letter-spacing: 0;
 }
 code {
-    padding: 0 15px;
+    padding: 0 25px;
+    color: #000;
+    font-size: 12px;
 }
-#counter {
-    float: right;
-    text-align: right;
+.search-card {
+    margin: 0 auto;
+    width: 50%;
 }
-
+#list-button {
+    color: #0277bd;
+    cursor: pointer;
+}
+#full-list {
+    display: none;
+    width: 50%;
+    margin: 0 auto;
+}
 #result {
     outline: none;
-    min-height: 300px;
+    min-height: 0;
     max-height: 600px;
     overflow: scroll;
+}
+#search {
+    width: 100%;
+}
+footer {
+    padding-bottom: 40px;
+}
+#footer {
+    font-size: 16px;
+    padding-left: 10px;
+}
+#social {
+    font-size: 20px;
+    padding-right: 10px;
+}
+i {
+    padding-left: 10px;
 }

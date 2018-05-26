@@ -3,67 +3,60 @@
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cinzel|Harmattan">
         <link rel="stylesheet" href="site.css">
-        <title>Final Fantasy Characters</title>
+        <link rel="icon" href="moogle.png">
+        <title>Api | Final Fantasy</title>
     </head>
     <body>
         <nav class="navbar navbar-dark bg-dark navbar-toggleable-md sticky-top">
-            <div class="container">
-                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleContainer" aria-controls="navbarsExampleContainer" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+            <div class="container">  
+                <span><img id="logo" src="moogle.png"></span>
                 <a class="navbar-brand" href="#">Final Fantasy Api</a>
-                <div class="collapse navbar-collapse" id="navbarsExampleContainer">
-                    <ul class="navbar-nav mr-auto">
-                        <!-- <li class="nav-item active">
-                            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled" href="#">Disabled</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-                            <div class="dropdown-menu" aria-labelledby="dropdown02">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                            </div>
-                        </li> -->
-                        <li class="nav-link mix-buffer">Made you look!</li>
-                    </ul>
-                </div>
             </div>
         </nav>
+        <div class="title-card text-center bottom-buffer">
+            <h1 class="title">Final Fantasy Api</h1>
+            <h3>An API for your favorite Final Fantasy Characters!</h3>
+            <h5>Currently holding <span id="counter"></span>.</h5>
+        </div>
         <div class="container top-buffer">
-            <div class="card">
+            <h3 class="text-center bottom-buffer">Try it out!</h3>
+            <div class="card search-card">
                 <form class="form-inline my-2 my-md-0">
-                    <input id="search" class="form-control mr-sm-2" type="input" placeholder="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    <input id="search" class="form-control" type="input" placeholder="Search...">
                 </form>
             </div>
-            <div id="result" class="top-buffer"></div>
+            <div class="search-card">
+                <h7>Start typing a character's name and the data will populate below</h7>
+                <h7 id="list-button" class="float-right">Toggle full list</h7>
+            </div>
 
-            <div id="full-list" class="card card-block bg-faded">
+            <div id="result" class="mix-buffer"></div>
+
+            <div id="full-list" class="card card-block bg-faded mix-buffer">
                 <table class="table"> 
                     <tr>
                         <th>Name</th>
-                        <th>Gender</th>
                         <th>Origin</th>
                     </tr>
                     <tbody id="characters"></tbody>
                 </table>
             </div>
         </div>
-        <footer class="mix-buffer text-center">
-            <p id="footer">&copy; jack f perry jr</p>
+        <hr/>
+        <footer class="bottom-buffer text-center">
+            <h6 id="footer" class="float-left"></h6>
+            <h6 id="social" class="float-right">
+                <a href="https://www.facebook.com/jackfperryjr" target="_blank" title="Visit Facebook."><i class="fab fa-facebook-square"></i></a>
+                <a href="https://www.linkedin.com/in/jackfperryjr" target="_blank" title="Visit LinkedIn."><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/jackfperryjr" target="_blank" title="Visit GitHub."><i class="fab fa-github-square"></i></a>
+                <a href="https://www.instagram.com/jackfperryjr" target="_blank" title="Visit Instagram."><i class="fab fa-instagram"></i></a>
+            </h6>
         </footer>
-
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
-
         <script src="site.js"></script>
     </body>
 </html>

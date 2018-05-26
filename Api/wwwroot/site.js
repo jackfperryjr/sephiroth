@@ -7,7 +7,7 @@ function getCount(data) {
         if (data > 1) {
             name = 'characters';
         }
-        el.text('Total ' + name + ': ' + data);
+        el.text(data + ' ' + name);
     } else {
         el.html('No ' + name);
     }
@@ -26,7 +26,6 @@ function getData() {
             getCount(data.length);
             $.each(data, function (key, character) {
                 $('<tr><td>' + character.name + '</td>' +
-                    '<td>' + character.gender + '</td>' +
                     '<td>' + character.origin + '</td>' +
                     '</tr>').appendTo($('#characters'));
             });
@@ -43,9 +42,9 @@ $('#search').keyup(function(){
         return;
     }
     
-    var regex = new RegExp(searchField, "i");
-    var output = '<div class="row">';
-    var count = 1;
+    let regex = new RegExp(searchField, "i");
+    let output = '<div class="row">';
+    let count = 1;
       $.each(characters, function(key, val){
         if ((val.name.search(regex) != -1) || (val.name.search(regex) != -1)) {
           output += '<div class="col-md-12 card">';
@@ -69,3 +68,10 @@ $('#search').keyup(function(){
       output += '</div>';
       $('#result').html(output);
 });
+
+$('#list-button').click(function() {
+    $('#full-list').fadeToggle();
+});
+
+let year = new Date().getFullYear();
+$('#footer').html("&copy; " + year + " jack f. perry, jr.");
