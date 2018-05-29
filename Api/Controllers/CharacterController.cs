@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 using System.Collections.Generic;
 using System.Linq;
 using Newtonsoft.Json;
@@ -67,7 +68,7 @@ namespace Api.Controllers
             {
                 return NotFound();
             }
-
+            todo.Id = character.Id;
             todo.Name = character.Name;
             todo.Age = character.Name;
             todo.Gender = character.Gender;

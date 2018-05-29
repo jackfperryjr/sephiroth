@@ -46,7 +46,7 @@ $('#search').keyup(function(){
     let output = '<div class="row">';
     let count = 1;
       $.each(characters, function(key, val){
-        if ((val.name.search(regex) != -1) || (val.name.search(regex) != -1)) {
+        if ((val.name.search(regex) != -1)) {
           output += '<div class="col-md-12 card">';
           output += '<span>&#123;</span><code>';
           output += '"name":"' + val.name.toLowerCase() + '",' + '<br/>';
