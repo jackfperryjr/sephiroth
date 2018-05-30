@@ -43,11 +43,11 @@ $('#search').keyup(function(){
     }
     
     let regex = new RegExp(searchField, "i");
-    let output = '<div class="row">';
+    let output = '';
     let count = 1;
       $.each(characters, function(key, val){
         if ((val.name.search(regex) != -1)) {
-          output += '<div class="col-md-12 card">';
+          output += '<div class="card col-md-12">';
           output += '<span>&#123;</span><code>';
           output += '"name":"' + val.name.toLowerCase() + '",' + '<br/>';
           output += '"age":"' + val.age.toLowerCase() + '",' + '<br/>';
@@ -65,7 +65,6 @@ $('#search').keyup(function(){
           count++;
         }
       });
-      output += '</div>';
       $('#result').html(output);
 });
 

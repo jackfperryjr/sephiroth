@@ -18,6 +18,12 @@ body {
 }
 #logo {
     width: 40px;
+    transition: all .3s ease-in-out;
+}
+#logo:hover,
+#logo:focus {
+    transform: rotate(-12deg);
+    transition: all .3s ease-in-out;
 }
 h1 {
     padding-top: 20px;
@@ -46,7 +52,6 @@ code {
 }
 #result {
     outline: none;
-    min-height: 0;
     max-height: 600px;
     overflow: scroll;
 }
@@ -65,5 +70,12 @@ footer {
     padding-right: 10px;
 }
 i {
+    color: #37474F;
     padding-left: 10px;
+}
+
+i:hover,
+i:focus {
+    color: #3F729B;
+    transform: rotate(7deg);
 }
