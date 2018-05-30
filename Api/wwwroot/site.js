@@ -24,7 +24,7 @@ function getData() {
     });
 }
 
-// Counting characters
+// Counting the characters
 let characters = null;
 function getCount(data) {
     const el = $('#counter');
