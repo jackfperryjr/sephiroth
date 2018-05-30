@@ -1,21 +1,8 @@
-.top-buffer {
-    margin-top: 40px;
-}
-.bottom-buffer {
-    margin-bottom: 40px;
-}
-.mix-buffer {
-    margin: 40px 0;
-}
+/* Adding Google font */
 body {
     font-family: 'Harmattan', sans-serif;
 }
-.title-card {
-    background-color:#eceff1;
-    color:#000; 
-    height:200px; 
-    width: 100%;
-}
+/* Header styles */
 #logo {
     width: 40px;
     transition: all .3s ease-in-out;
@@ -25,6 +12,24 @@ body {
     transform: rotate(-12deg);
     transition: all .3s ease-in-out;
 }
+/* Spacer classes */
+.top-buffer {
+    margin-top: 40px;
+}
+.bottom-buffer {
+    margin-bottom: 40px;
+}
+.mix-buffer {
+    margin: 40px 0;
+}
+/* Title info card */
+.title-card {
+    background-color:#eceff1;
+    color:#000; 
+    height:200px; 
+    width: 100%;
+}
+/* Basic element styles */
 h1 {
     padding-top: 20px;
 }
@@ -37,10 +42,21 @@ code {
     color: #000;
     font-size: 12px;
 }
+/* Search card */
 .search-card {
     margin: 0 auto;
     width: 50%;
 }
+#search {
+    width: 100%;
+}
+#result {
+    outline: none;
+    width: 100%;
+    max-height: 600px;
+    overflow: scroll;
+}
+/* Full list control */
 #list-button {
     color: #0277bd;
     cursor: pointer;
@@ -50,15 +66,7 @@ code {
     width: 50%;
     margin: 0 auto;
 }
-#result {
-    outline: none;
-    width: 100%;
-    max-height: 600px;
-    overflow: scroll;
-}
-#search {
-    width: 100%;
-}
+/* Footer styles */
 footer {
     padding-bottom: 40px;
 }
@@ -74,7 +82,6 @@ i {
     color: #37474F;
     padding-left: 10px;
 }
-
 i:hover,
 i:focus {
     color: #3F729B;
