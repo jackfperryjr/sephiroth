@@ -16,14 +16,6 @@ namespace Api.Controllers
     [Route("api/[controller]")]
     public class CharacterController : ControllerBase
     {
-        /*
-        private readonly IConfiguration _configuration;
-
-        public CharacterController(IConfiguration configuration)
-        {
-            _configuration = configuration;
-        }
-        */
         private readonly CharacterContext _context;
 
         public CharacterController(CharacterContext context)
