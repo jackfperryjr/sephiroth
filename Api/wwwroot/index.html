@@ -9,7 +9,7 @@
         <link rel="icon" href="moogle.png">
         <title>Api | Final Fantasy</title>
     </head>
-    <body>
+    <body onload="timer()">
         <nav class="navbar navbar-dark bg-dark navbar-toggleable-md sticky-top">
             <div class="container">
                 <span><img id="logo" src="moogle.png"></span>
@@ -19,7 +19,8 @@
         <div class="text-center bottom-buffer">
             <h1 class="title" >Final Fantasy Api</h1>
             <h3>An API for your favorite Final Fantasy Characters!</h3>
-            <h5>Currently holding <span id="counter"></span></h5>
+            <div id="loader" style="margin: 0 auto;"></div>
+            <h5 id="total">Currently holding <span id="counter"></span></h5>
         </div>
         <div class="container top-buffer">
             <h3 class="text-center bottom-buffer">Try it out!</h3>

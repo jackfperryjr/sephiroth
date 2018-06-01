@@ -76,6 +76,16 @@ $('#search').keyup(function() {
     $('#result').html(output);
 });
 
+// Loading icon while counting
+function timer() {
+    let timed;
+    timed = setTimeout(showTotal, 1500);
+}
+function showTotal() {
+    $('#loader').hide();
+    $('#total').show();
+}
+
 // Click toggle for full list of characters
 $('#list-button').click(function() {
     $('#full-list').fadeToggle();
