@@ -15,6 +15,6 @@ namespace Api.Models
         public string Weight { get; set; } 
         public string Origin { get; set; }
         public string Description { get; set; }
-        public string Picture { get; set; }
+        public byte[] Picture { get; set; }
     }  
 }

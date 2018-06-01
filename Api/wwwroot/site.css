@@ -57,7 +57,8 @@ code {
     overflow: scroll;
 }
 /* Full list control */
-#list-button {
+#list-button, #back-to-top {
+    text-decoration: none;
     color: #0277bd;
     cursor: pointer;
 }
@@ -65,6 +66,9 @@ code {
     display: none;
     width: 50%;
     margin: 0 auto;
+}
+#back-to-top {
+    display: none;
 }
 /* Footer styles */
 footer {

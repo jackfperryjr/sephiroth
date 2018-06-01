@@ -1,6 +1,11 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using Microsoft.IdentityModel.Tokens;
 using System.Collections.Generic;
+using Microsoft.Extensions.Configuration;
+using System.Text;
 using System.Linq;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -11,6 +16,14 @@ namespace Api.Controllers
     [Route("api/[controller]")]
     public class CharacterController : ControllerBase
     {
+        /*
+        private readonly IConfiguration _configuration;
+
+        public CharacterController(IConfiguration configuration)
+        {
+            _configuration = configuration;
+        }
+        */
         private readonly CharacterContext _context;
 
         public CharacterController(CharacterContext context)
@@ -19,6 +32,7 @@ namespace Api.Controllers
         }
 
         //GET all api/character
+        [AllowAnonymous]
         [HttpGet]
         public List<Character> GetAll()
         {
@@ -28,6 +42,7 @@ namespace Api.Controllers
         }
 
         //GET api/character/id
+        [AllowAnonymous]
         [HttpGet("{id}", Name = "GetCharacter")]
         public IActionResult Get(int? id)
         {
@@ -40,6 +55,7 @@ namespace Api.Controllers
         }   
 
         //POST create new api/character
+        [Authorize]
         [HttpPost]
         public IActionResult Create([FromBody] Character character)
         {
@@ -55,6 +71,7 @@ namespace Api.Controllers
         }
 
         //PUT update api/character/id
+        [Authorize]
         [HttpPut("{id}")]
         public IActionResult Update(int? id, [FromBody] Character character)
         {
@@ -86,6 +103,7 @@ namespace Api.Controllers
         }
 
         //DELETE api/character by Id
+        [Authorize]
         [HttpDelete("{id}")]
         public IActionResult Delete(int? id)
         {

@@ -6,6 +6,8 @@ $(document).ready(function () {
 
 // Using Api to get characters
 const uri = '/api/character';
+
+// Making list of characters
 function getData() {
     $.ajax({
         type: 'GET',
@@ -28,10 +30,10 @@ function getData() {
 let characters = null;
 function getCount(data) {
     const el = $('#counter');
-    let name = 'character';
+    let name = 'character.';
     if (data) {
         if (data > 1) {
-            name = 'characters';
+            name = 'characters.';
         }
         el.text(data + ' ' + name);
     } else {
@@ -77,6 +79,7 @@ $('#search').keyup(function() {
 // Click toggle for full list of characters
 $('#list-button').click(function() {
     $('#full-list').fadeToggle();
+    $('#back-to-top').toggle();
 });
 
 // Displaying current year in footer
