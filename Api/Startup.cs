@@ -33,6 +33,7 @@ namespace Api
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddDbContext<CharacterContext>(options =>options.UseSqlite("Data Source=Character.db"));
             
+            
             services.AddAuthentication(options => {
                 options.DefaultAuthenticateScheme = "JwtBearer";
                 options.DefaultChallengeScheme = "JwtBearer";
@@ -51,6 +52,7 @@ namespace Api
                     ClockSkew = TimeSpan.FromMinutes(5) //5 minute tolerance for the expiration date
                 };
             });
+            
 
             services.AddCors(options =>
             {
