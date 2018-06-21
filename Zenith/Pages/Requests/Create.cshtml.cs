@@ -6,11 +6,13 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Threading.Tasks;
+using System;
 
 namespace Zenith.Pages.Requests
 {
     public class CreateModel : DI_BaseModel
     {
+
         public CreateModel(
             ApplicationDbContext context,
             IAuthorizationService authorizationService,
@@ -23,11 +25,11 @@ namespace Zenith.Pages.Requests
         {
             Request = new Request
             {
-                Name = "Rick Johns",
-                DateOfToday = "06/20/2018",
-                DateOfRequest = "07/20/2018",
-                Reason = "Wedding",
-                Email = "rick@example.com"
+                Name = "",
+                DateOfToday = DateTime.Now.ToString("MM/dd/yyyy"),
+                DateOfRequest = "",
+                Reason = "",
+                Email = ""
             };
             return Page();
         }

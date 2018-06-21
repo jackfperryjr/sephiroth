@@ -32,6 +32,14 @@ namespace Zenith
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
+            /*
+            services.AddIdentity<ApplicationUser, IdentityRole>(config =>
+            {
+                config.SignIn.RequireConfirmedEmail = true;
+            })
+                .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddDefaultTokenProviders();
+            */
 
             var skipHTTPS = Configuration.GetValue<bool>("LocalTest:skipHTTPS");
             // requires using Microsoft.AspNetCore.Mvc;
@@ -53,6 +61,9 @@ namespace Zenith
                 //});
 
             services.AddSingleton<IEmailSender, EmailSender>();
+            
+            services.Configure<AuthMessageSenderOptions>(Configuration);
+
            
             // requires: using Microsoft.AspNetCore.Authorization;
             //           using Microsoft.AspNetCore.Mvc.Authorization;
