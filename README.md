@@ -9,6 +9,8 @@ This application comes with three users in the database and they all use the sam
 * manager@example.com
 * test@example.com
 
- Admin has complete control over modifying, approving, or rejecting the requests.
- Manager can see all of the requests and can approve or reject them.
- Test can only see the approved requests, their own requests, and can modify their pending requests.
+ Admin has complete control over modifying, approving, or rejecting the requests.<br/>
+ Manager can see all of the requests and can approve or reject them.<br/>
+ Test can only see the approved requests, their own requests, and can modify their pending requests.<br/>
+
+
