@@ -78,8 +78,8 @@ namespace Zenith.Data
                 new Request
                 {
                     Name = "Debra Garcia",
-                    DateOfToday = "06/20/2018",
-                    DateOfRequest = "07/20/2018",
+                    DateOfToday = "2018-06-20",
+                    DateOfRequest = "2018-07-20",
                     Reason = "Wedding",
                     Email = "debra@example.com",
                     Status = RequestStatus.Approved,
@@ -88,8 +88,8 @@ namespace Zenith.Data
                 new Request
                 {
                     Name = "Thorsten Weinrich",
-                    DateOfToday = "06/20/2018",
-                    DateOfRequest = "06/25/2018",
+                    DateOfToday = "2018-06-20",
+                    DateOfRequest = "2018-06-25",
                     Reason = "Baptism",
                     Email = "thorsten@example.com",
                     Status = RequestStatus.Submitted,
@@ -98,8 +98,8 @@ namespace Zenith.Data
                 new Request
                 {
                     Name = "Yuhong Li",
-                    DateOfToday = "06/20/2018",
-                    DateOfRequest = "06/22/2018",
+                    DateOfToday = "2018-06-20",
+                    DateOfRequest = "2018-06-22",
                     Reason = "Kid's graduation",
                     Email = "yuhong@example.com",
                     Status = RequestStatus.Submitted,
@@ -108,8 +108,8 @@ namespace Zenith.Data
                 new Request
                 {
                     Name = "Jon Orton",
-                    DateOfToday = "06/20/2018",
-                    DateOfRequest = "08/21/2018",
+                    DateOfToday = "2018-06-20",
+                    DateOfRequest = "2018-08-21",
                     Reason = "Just because",
                     Email = "jon@example.com",
                     Status = RequestStatus.Rejected,
@@ -118,8 +118,8 @@ namespace Zenith.Data
                 new Request
                 {
                     Name = "Diliana Alexieva-Bosseva",
-                    DateOfToday = "06/20/2018",
-                    DateOfRequest = "08/01/2018",
+                    DateOfToday = "2018-06-20",
+                    DateOfRequest = "2018-08-01",
                     Reason = "Personal",
                     Email = "diliana@example.com",
                     Status = RequestStatus.Submitted,
