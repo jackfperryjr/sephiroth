@@ -43,6 +43,8 @@ namespace Zenith.Pages.Account.Manage
             [Required]
             [EmailAddress]
             public string Email { get; set; }
+            [Display(Name = "Name")]
+            public string UserName { get; set; }
 
             [Phone]
             [Display(Name = "Phone number")]
@@ -62,6 +64,7 @@ namespace Zenith.Pages.Account.Manage
             Input = new InputModel
             {
                 Email = user.Email,
+                UserName = user.UserName,
                 PhoneNumber = user.PhoneNumber
             };
 
@@ -91,6 +94,17 @@ namespace Zenith.Pages.Account.Manage
                     throw new ApplicationException($"Unexpected error occurred setting email for user with ID '{user.Id}'.");
                 }
             }
+
+            /*
+            if (Input.UserName != user.UserName)
+            {
+                var setUserNameResult = await _userManager.SetUserNameAsync(user, Input.UserName);
+                if (!setUserNameResult.Succeeded)
+                {
+                    throw new ApplicationException($"Unexpected error occurred setting name for user with ID '{user.Id}'.");
+                }
+            }
+            */
 
             if (Input.PhoneNumber != user.PhoneNumber)
             {

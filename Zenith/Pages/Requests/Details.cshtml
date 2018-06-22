@@ -61,7 +61,7 @@
         <form style="display:inline;" method="post">
             <input type="hidden" name="id" value="@Model.Request.RequestId" />
             <input type="hidden" name="status" value="@RequestStatus.Approved" />
-            <button type="submit" class="btn btn-xs btn-success">Approve</button>
+            <button type="submit" class="btn btn-success">Approve</button>
         </form>
     }
 }
@@ -74,7 +74,7 @@
         <form style="display:inline;" method="post">
             <input type="hidden" name="id" value="@Model.Request.RequestId" />
             <input type="hidden" name="status" value="@RequestStatus.Rejected" />
-            <button type="submit" class="btn btn-xs btn-success">Reject</button>
+            <button type="submit" class="btn btn-danger">Reject</button>
         </form>
     }
 }

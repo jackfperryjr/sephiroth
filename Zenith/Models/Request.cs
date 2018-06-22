@@ -12,7 +12,6 @@ namespace Zenith.Models
         [Required]
         public string Name { get; set; }
         [DisplayName("Today's Date")]
-        [DataType(DataType.Date)]
         [Required]
         public string DateOfToday { get; set; }
         [DisplayName("Date Requested")]
