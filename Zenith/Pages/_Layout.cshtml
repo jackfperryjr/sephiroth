@@ -31,7 +31,7 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li><a asp-page="/Requests/Index">Request Time Off</a></li>
-                    <li><a asp-page="/About">About</a></li>
+                    <!-- <li><a asp-page="/About">About</a></li> -->
                     <li><a asp-page="/Contact">Contact</a></li>
                 </ul>
                 @await Html.PartialAsync("_LoginPartial")
@@ -42,7 +42,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; 2018 - Zenith</p>
+            <p>&copy; @DateTime.Now.Year - Zenith</p>
         </footer>
     </div>
 

@@ -1,5 +1,6 @@
 @page
 @model Zenith.Pages.Requests.CreateModel
+@inject UserManager<ApplicationUser> UserManager
 
 @{
     ViewData["Title"] = "Create";
@@ -15,27 +16,27 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Request.Name" class="control-label"></label>
-                <input asp-for="Request.Name" class="form-control" />
+                <input asp-for="Request.Name" class="form-control" placeholder="Your name goes here" />
                 <span asp-validation-for="Request.Name" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Request.DateOfToday" class="control-label"></label>
-                <input asp-for="Request.DateOfToday" class="form-control" />
+                <input asp-for="Request.DateOfToday" class="form-control" placeholder="@DateTime.Now.ToString("MM/dd/yyyy")" />
                 <span asp-validation-for="Request.DateOfToday" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Request.DateOfRequest" class="control-label"></label>
-                <input asp-for="Request.DateOfRequest" class="form-control" />
+                <input asp-for="Request.DateOfRequest" class="form-control" placeholder="@DateTime.Now.AddDays(1).ToString("MM/dd/yyyy")" />
                 <span asp-validation-for="Request.DateOfRequest" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Request.Reason" class="control-label"></label>
-                <input asp-for="Request.Reason" class="form-control" />
+                <input asp-for="Request.Reason" class="form-control" placeholder="Your reason goes here" />
                 <span asp-validation-for="Request.Reason" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Request.Email" class="control-label"></label>
-                <input asp-for="Request.Email" class="form-control" />
+                <input asp-for="Request.Email" class="form-control" placeholder="@UserManager.GetUserName(User)" />
                 <span asp-validation-for="Request.Email" class="text-danger"></span>
             </div>
             <div class="form-group">

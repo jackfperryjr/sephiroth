@@ -29,12 +29,15 @@
         <dd>
             @Html.DisplayFor(model => model.Request.DateOfRequest)
         </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Request.Reason)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Request.Reason)
-        </dd>
+            @if (User.IsInRole("RequestAdministrators") || User.IsInRole("RequestManagers"))
+            {
+            <dt>
+                @Html.DisplayNameFor(model => model.Request.Reason)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Request.Reason)
+            </dd>
+            }
         <dt>
             @Html.DisplayNameFor(model => model.Request.Email)
         </dt>

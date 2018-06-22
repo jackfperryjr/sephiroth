@@ -23,14 +23,6 @@ namespace Zenith.Pages.Requests
 
         public IActionResult OnGet()
         {
-            Request = new Request
-            {
-                Name = "",
-                DateOfToday = DateTime.Now.ToString("MM/dd/yyyy"),
-                DateOfRequest = "",
-                Reason = "",
-                Email = ""
-            };
             return Page();
         }
 
