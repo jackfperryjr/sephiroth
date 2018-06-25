@@ -37,6 +37,8 @@ namespace Zenith.Pages.Account
         public InputModel Input { get; set; }
 
         public string ReturnUrl { get; set; }
+        [TempData]
+        public string StatusMessage { get; set; }
 
         public class InputModel
         {
@@ -78,7 +80,9 @@ namespace Zenith.Pages.Account
                     await _emailSender.SendEmailConfirmationAsync(Input.Email, callbackUrl);
 
                     await _signInManager.SignInAsync(user, isPersistent: true);
+                    //StatusMessage = "You should receive a confirmation email shortly. Please follow the link inside to finish registering and login!";
                     return LocalRedirect(Url.GetLocalUrl(returnUrl));
+                    //return RedirectToPage();
                 }
                 foreach (var error in result.Errors)
                 {
