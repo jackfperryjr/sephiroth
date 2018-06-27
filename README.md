@@ -13,4 +13,4 @@ This application comes with three users in the database and they all use the sam
  Manager can see all of the requests and can approve or reject them.<br/>
  Test can only see the approved requests, their own requests, and can modify their pending requests.<br/>
 
-
+(I misspelled "refactored" in my last commit!)
