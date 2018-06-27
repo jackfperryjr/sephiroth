@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/Zenith/Zenith.csproj"
+                "${workspaceFolder}/Sephiroth.csproj"
             ],
             "problemMatcher": "$msCompile"
         }

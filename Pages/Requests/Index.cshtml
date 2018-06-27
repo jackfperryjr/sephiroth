@@ -1,0 +1,75 @@
+@page
+@model Sephiroth.Pages.Requests.IndexModel
+
+@{
+    ViewData["Title"] = "- Requests";
+}
+
+<h2>Requests</h2>
+
+<p>
+    <a asp-page="Create" class="btn btn-primary">Create Request</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Request[0].Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Request[0].DateOfToday)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Request[0].DateOfRequest)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Request[0].Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Request[0].Status)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Request)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateOfToday)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateOfRequest)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+                <td>
+                    @if ((await AuthorizationService.AuthorizeAsync(
+                      User, item,
+                      RequestOperations.Update)).Succeeded)
+                    {
+                        <a asp-page="./Edit" asp-route-id="@item.RequestId">Edit</a>
+                        <text> | </text>
+                    }
+
+                    <a asp-page="./Details" asp-route-id="@item.RequestId">Details</a>
+
+                    @if ((await AuthorizationService.AuthorizeAsync(
+                      User, item,
+                      RequestOperations.Delete)).Succeeded)
+                    {
+                        <text> | </text>
+                        <a asp-page="./Delete" asp-route-id="@item.RequestId">Delete</a>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -10,9 +10,9 @@
             "request": "launch",
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/Zenith/bin/Debug/netcoreapp2.1/Zenith.dll",
+            "program": "${workspaceFolder}/bin/Debug/netcoreapp2.1/Sephiroth.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/Zenith",
+            "cwd": "${workspaceFolder}",
             "stopAtEntry": false,
             "internalConsoleOptions": "openOnSessionStart",
             "launchBrowser": {
