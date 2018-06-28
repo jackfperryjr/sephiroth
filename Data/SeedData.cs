@@ -77,52 +77,62 @@ namespace Sephiroth.Data
             context.Request.AddRange(
                 new Request
                 {
-                    Name = "Debra Garcia",
+                    Name = "Cloud Strife",
                     DateOfToday = "2018-06-20",
                     DateOfRequest = "2018-07-20",
-                    Reason = "Wedding",
-                    Email = "debra@example.com",
-                    Status = RequestStatus.Approved,
-                    OwnerID = adminID
-                },
-                new Request
-                {
-                    Name = "Thorsten Weinrich",
-                    DateOfToday = "2018-06-20",
-                    DateOfRequest = "2018-06-25",
-                    Reason = "Baptism",
-                    Email = "thorsten@example.com",
-                    Status = RequestStatus.Submitted,
-                    OwnerID = adminID
-                },
-                new Request
-                {
-                    Name = "Yuhong Li",
-                    DateOfToday = "2018-06-20",
-                    DateOfRequest = "2018-06-22",
-                    Reason = "Kid's graduation",
-                    Email = "yuhong@example.com",
-                    Status = RequestStatus.Submitted,
-                    OwnerID = adminID
-                },
-                new Request
-                {
-                    Name = "Jon Orton",
-                    DateOfToday = "2018-06-20",
-                    DateOfRequest = "2018-08-21",
-                    Reason = "Just because",
-                    Email = "jon@example.com",
+                    Reason = "I need to save the world",
+                    Email = "cloud.strife@fantasy.com",
                     Status = RequestStatus.Rejected,
                     OwnerID = adminID
                 },
                 new Request
                 {
-                    Name = "Diliana Alexieva-Bosseva",
+                    Name = "Aerith Gainsborough",
+                    DateOfToday = "2018-06-20",
+                    DateOfRequest = "2018-06-25",
+                    Reason = "Sephiroth killed me!",
+                    Email = "a.gainsborough@fantasy.com",
+                    Status = RequestStatus.Approved,
+                    OwnerID = adminID
+                },
+                new Request
+                {
+                    Name = "Tifa Lockhart",
+                    DateOfToday = "2018-06-20",
+                    DateOfRequest = "2018-06-22",
+                    Reason = "I'm in love with Cloud",
+                    Email = "tifa.lockhart@fantasy.com",
+                    Status = RequestStatus.Rejected,
+                    OwnerID = adminID
+                },
+                new Request
+                {
+                    Name = "Yuffie Kisaragi",
+                    DateOfToday = "2018-06-20",
+                    DateOfRequest = "2018-08-21",
+                    Reason = "Materia!",
+                    Email = "materia.hunter@fantasy.com",
+                    Status = RequestStatus.Rejected,
+                    OwnerID = adminID
+                },
+                new Request
+                {
+                    Name = "Cloud Strife",
                     DateOfToday = "2018-06-20",
                     DateOfRequest = "2018-08-01",
-                    Reason = "Personal",
-                    Email = "diliana@example.com",
-                    Status = RequestStatus.Submitted,
+                    Reason = "Family reunion",
+                    Email = "cloud.strife@fantasy.com",
+                    Status = RequestStatus.Rejected,
+                    OwnerID = adminID
+                },
+                new Request
+                {
+                    Name = "Cloud Strife",
+                    DateOfToday = "2018-06-20",
+                    DateOfRequest = "2018-08-01",
+                    Reason = "I need to figure out who I really am",
+                    Email = "cloud.strife@fantasy.com",
+                    Status = RequestStatus.Rejected,
                     OwnerID = adminID
                 }
              );
