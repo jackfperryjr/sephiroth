@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 using Sephiroth.Services;
+using Sephiroth.Models;
 
 namespace Sephiroth.Services
 {
@@ -19,6 +20,12 @@ namespace Sephiroth.Services
         {
             return emailSender.SendEmailAsync(email, "Reset Password",
                 $"Please reset your password by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+        }
+
+        public static Task SendStatusUpdateAsync(this IEmailSender emailSender, string email)
+        {
+            return emailSender.SendEmailAsync(email, "Request Status Update",
+                $"Your request is (approved or rejected).");
         }
     }
 }
