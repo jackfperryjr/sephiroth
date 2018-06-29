@@ -79,7 +79,7 @@ namespace Sephiroth.Pages.Account
                     var callbackUrl = Url.EmailConfirmationLink(user.Id, code, Request.Scheme);
                     await _emailSender.SendEmailConfirmationAsync(Input.Email, callbackUrl);
 
-                    await _signInManager.SignInAsync(user, isPersistent: false);
+                    //await _signInManager.SignInAsync(user, isPersistent: false);
                     StatusMessage = "You should receive a confirmation email shortly. Please follow the link inside to finish registering and login!";
                     //return LocalRedirect(Url.GetLocalUrl(returnUrl));
                     return RedirectToPage();
