@@ -82,7 +82,7 @@ namespace Sephiroth.Pages.Account
                     //await _signInManager.SignInAsync(user, isPersistent: false);
                     StatusMessage = "You should receive a confirmation email shortly. Please follow the link inside to finish registering and login!";
                     //return LocalRedirect(Url.GetLocalUrl(returnUrl));
-                    return RedirectToPage();
+                    return RedirectToPage(returnUrl);
                 }
                 foreach (var error in result.Errors)
                 {
