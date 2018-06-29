@@ -1,6 +1,7 @@
 using Sephiroth.Authorization;
 using Sephiroth.Data;
 using Sephiroth.Models;
+using Sephiroth.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -20,6 +21,7 @@ namespace Sephiroth.Pages.Requests
         }
 
         public Request Request { get; set; }
+        private readonly IEmailSender _emailSender;
 
         public async Task<IActionResult> OnGetAsync(int id)
         {
@@ -55,6 +57,10 @@ namespace Sephiroth.Pages.Requests
             request.Status = status;
             Context.Request.Update(request);
             await Context.SaveChangesAsync();
+
+
+            // *** Having trouble with this one. ***    
+            //await _emailSender.SendStatusUpdateAsync(request.Email, request.Status);
 
             return RedirectToPage("./Index");
         }

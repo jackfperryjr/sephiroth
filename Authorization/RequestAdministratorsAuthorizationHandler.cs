@@ -11,8 +11,6 @@ namespace Sephiroth.Authorization
     public class RequestAdministratorsAuthorizationHandler
                     : AuthorizationHandler<OperationAuthorizationRequirement, Request>
     {
-        private readonly IEmailSender _emailSender;
-
         protected override Task HandleRequirementAsync(
                                               AuthorizationHandlerContext context,
                                     OperationAuthorizationRequirement requirement, 
@@ -29,7 +27,6 @@ namespace Sephiroth.Authorization
                 context.Succeed(requirement);
             }
 
-            //await _emailSender.SendStatusUpdateAsync(Email);
             return Task.CompletedTask;
         }
     }

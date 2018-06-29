@@ -22,10 +22,10 @@ namespace Sephiroth.Services
                 $"Please reset your password by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
         }
 
-        public static Task SendStatusUpdateAsync(this IEmailSender emailSender, string email)
+        public static Task SendStatusUpdateAsync(this IEmailSender emailSender, string email, RequestStatus status)
         {
             return emailSender.SendEmailAsync(email, "Request Status Update",
-                $"Your request is (approved or rejected).");
+                $"Your request has been {status}.");
         }
     }
 }
