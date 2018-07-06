@@ -20,8 +20,8 @@ namespace Sephiroth.Pages.Requests
         {
         }
 
-        public Request Request { get; set; }
         private readonly IEmailSender _emailSender;
+        public Request Request { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int id)
         {
