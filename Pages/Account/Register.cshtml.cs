@@ -42,6 +42,10 @@ namespace Sephiroth.Pages.Account
 
         public class InputModel
         {
+            [Display(Name = "First name")]
+            public string FirstName { get; set; }
+            [Display(Name = "Last name")]
+            public string LastName { get; set; }
             [Required]
             [EmailAddress]
             [Display(Name = "Email")]
@@ -69,7 +73,7 @@ namespace Sephiroth.Pages.Account
             ReturnUrl = returnUrl;
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = Input.Email, Email = Input.Email };
+                var user = new ApplicationUser { FirstName = Input.FirstName, LastName = Input.LastName, UserName = Input.Email, Email = Input.Email };
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {

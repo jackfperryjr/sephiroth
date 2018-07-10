@@ -138,6 +138,10 @@ namespace Sephiroth.Data.Migrations
 
                     b.Property<bool>("EmailConfirmed");
 
+                    b.Property<string>("FirstName");
+
+                    b.Property<string>("LastName");
+
                     b.Property<bool>("LockoutEnabled");
 
                     b.Property<DateTimeOffset?>("LockoutEnd");
@@ -178,17 +182,22 @@ namespace Sephiroth.Data.Migrations
                     b.Property<int>("RequestId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("DateOfRequest");
+                    b.Property<string>("DateOfRequest")
+                        .IsRequired();
 
-                    b.Property<string>("DateOfToday");
+                    b.Property<string>("DateOfToday")
+                        .IsRequired();
 
-                    b.Property<string>("Email");
+                    b.Property<string>("Email")
+                        .IsRequired();
 
-                    b.Property<string>("Name");
+                    b.Property<string>("Name")
+                        .IsRequired();
 
                     b.Property<string>("OwnerID");
 
-                    b.Property<string>("Reason");
+                    b.Property<string>("Reason")
+                        .IsRequired();
 
                     b.Property<int>("Status");
 

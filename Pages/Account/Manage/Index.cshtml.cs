@@ -45,6 +45,10 @@ namespace Sephiroth.Pages.Account.Manage
             public string Email { get; set; }
             [Display(Name = "Name")]
             public string UserName { get; set; }
+            [Display(Name = "First name")]
+            public string FirstName { get; set; }
+            [Display(Name = "Last name")]
+            public string LastName { get; set; }
 
             [Phone]
             [Display(Name = "Phone number")]
@@ -64,8 +68,10 @@ namespace Sephiroth.Pages.Account.Manage
             Input = new InputModel
             {
                 Email = user.Email,
-                UserName = user.UserName,
-                PhoneNumber = user.PhoneNumber
+                UserName = user.Email,
+                PhoneNumber = user.PhoneNumber,
+                FirstName = user.FirstName,
+                LastName = user.LastName
             };
 
             IsEmailConfirmed = await _userManager.IsEmailConfirmedAsync(user);
@@ -95,11 +101,29 @@ namespace Sephiroth.Pages.Account.Manage
                 }
             }
 
-            /*
             if (Input.UserName != user.UserName)
             {
                 var setUserNameResult = await _userManager.SetUserNameAsync(user, Input.UserName);
                 if (!setUserNameResult.Succeeded)
+                {
+                    throw new ApplicationException($"Unexpected error occurred setting name for user with ID '{user.Id}'.");
+                }
+            }
+
+            /*
+            if (Input.FirstName != user.FirstName)
+            {
+                var setFirstNameResult = await _userManager.SetFirstNameAsync(user, Input.FirstName);
+                if (!setFirstNameResult.Succeeded)
+                {
+                    throw new ApplicationException($"Unexpected error occurred setting name for user with ID '{user.Id}'.");
+                }
+            }
+            
+            if (Input.LastName != user.LastName)
+            {
+                var setLastNameResult = await _userManager.SetLastNameAsync(user, Input.LastName);
+                if (!setLastNameResult.Succeeded)
                 {
                     throw new ApplicationException($"Unexpected error occurred setting name for user with ID '{user.Id}'.");
                 }

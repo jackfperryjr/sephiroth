@@ -22,11 +22,11 @@ namespace Sephiroth.Data
                 // dotnet user-secrets set SeedUserPW <pw>
                 // The admin user can do anything
 
-                var adminID = await EnsureUser(serviceProvider, testUserPw, "admin@example.com");
+                var adminID = await EnsureUser(serviceProvider, testUserPw, "sephiroth@sephiroth.com");
                 await EnsureRole(serviceProvider, adminID, Constants.RequestAdministratorsRole);
 
                 // allowed user can create and edit requests that they create
-                var uid = await EnsureUser(serviceProvider, testUserPw, "manager@example.com");
+                var uid = await EnsureUser(serviceProvider, testUserPw, "manager@sephiroth.com");
                 await EnsureRole(serviceProvider, uid, Constants.RequestManagersRole);
 
                 SeedDB(context, adminID);
