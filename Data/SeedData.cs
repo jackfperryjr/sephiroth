@@ -78,8 +78,8 @@ namespace Sephiroth.Data
                 new Request
                 {
                     Name = "Cloud Strife",
-                    DateOfToday = "2018-06-20",
-                    DateOfRequest = "2018-07-20",
+                    DateOfToday = DateTime.Now.ToString("MM/dd/yyyy"),
+                    DateOfRequest = "07/20/2018",
                     Reason = "I need to save the world",
                     Email = "cloud.strife@fantasy.com",
                     Status = RequestStatus.Rejected,
@@ -88,8 +88,8 @@ namespace Sephiroth.Data
                 new Request
                 {
                     Name = "Aerith Gainsborough",
-                    DateOfToday = "2018-06-20",
-                    DateOfRequest = "2018-06-25",
+                    DateOfToday = DateTime.Now.ToString("MM/dd/yyyy"),
+                    DateOfRequest = "07/20/2018",
                     Reason = "Sephiroth killed me!",
                     Email = "a.gainsborough@fantasy.com",
                     Status = RequestStatus.Approved,
@@ -98,8 +98,8 @@ namespace Sephiroth.Data
                 new Request
                 {
                     Name = "Tifa Lockhart",
-                    DateOfToday = "2018-06-20",
-                    DateOfRequest = "2018-06-22",
+                    DateOfToday = DateTime.Now.ToString("MM/dd/yyyy"),
+                    DateOfRequest = "07/20/2018",
                     Reason = "I'm in love with Cloud",
                     Email = "tifa.lockhart@fantasy.com",
                     Status = RequestStatus.Rejected,
@@ -108,8 +108,8 @@ namespace Sephiroth.Data
                 new Request
                 {
                     Name = "Yuffie Kisaragi",
-                    DateOfToday = "2018-06-20",
-                    DateOfRequest = "2018-08-21",
+                    DateOfToday = DateTime.Now.ToString("MM/dd/yyyy"),
+                    DateOfRequest = "07/20/2018",
                     Reason = "Materia!",
                     Email = "materia.hunter@fantasy.com",
                     Status = RequestStatus.Rejected,
@@ -118,8 +118,8 @@ namespace Sephiroth.Data
                 new Request
                 {
                     Name = "Cloud Strife",
-                    DateOfToday = "2018-06-20",
-                    DateOfRequest = "2018-08-01",
+                    DateOfToday = DateTime.Now.ToString("MM/dd/yyyy"),
+                    DateOfRequest = "07/20/2018",
                     Reason = "Family reunion",
                     Email = "cloud.strife@fantasy.com",
                     Status = RequestStatus.Rejected,
@@ -128,8 +128,8 @@ namespace Sephiroth.Data
                 new Request
                 {
                     Name = "Cloud Strife",
-                    DateOfToday = "2018-06-20",
-                    DateOfRequest = "2018-08-01",
+                    DateOfToday = DateTime.Now.ToString("MM/dd/yyyy"),
+                    DateOfRequest = "07/20/2018",
                     Reason = "I need to figure out who I really am",
                     Email = "cloud.strife@fantasy.com",
                     Status = RequestStatus.Rejected,

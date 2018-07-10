@@ -31,7 +31,6 @@ namespace Sephiroth.Pages.Requests
             {
                 Name = "",
                 DateOfToday = DateTime.Now.ToString("MM/dd/yyyy"),
-                DateOfRequest = "",
                 Reason = "",
                 Email = UserManager.GetUserName(User)
             };
@@ -62,7 +61,7 @@ namespace Sephiroth.Pages.Requests
 
             Context.Request.Add(Request);
             await Context.SaveChangesAsync();
-            await _emailSender.SendStatusUpdateAsync(Request.Email, Request.Status);
+            await _emailSender.SendStatusUpdateAsync(Request.Email, Request.Status, Request.Name, Request.DateOfRequest, Request.Reason);
 
             return RedirectToPage("./Index");
         }

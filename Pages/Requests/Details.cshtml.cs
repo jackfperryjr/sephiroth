@@ -63,7 +63,7 @@ namespace Sephiroth.Pages.Requests
 
 
             // *** Having trouble with this one. ***    
-            await _emailSender.SendStatusUpdateAsync(request.Email, request.Status);
+            await _emailSender.SendStatusUpdateAsync(request.Email, request.Status, request.Name, request.DateOfRequest, request.Reason);
 
             return RedirectToPage("./Index");
         }
