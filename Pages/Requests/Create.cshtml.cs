@@ -1,6 +1,7 @@
 using Sephiroth.Authorization;
 using Sephiroth.Data;
 using Sephiroth.Models;
+using Sephiroth.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -12,13 +13,16 @@ namespace Sephiroth.Pages.Requests
 {
     public class CreateModel : DI_BaseModel
     {
+        private readonly IEmailSender _emailSender;
 
         public CreateModel(
             ApplicationDbContext context,
             IAuthorizationService authorizationService,
-            UserManager<ApplicationUser> userManager)
+            UserManager<ApplicationUser> userManager,
+            IEmailSender emailSender)
             : base(context, authorizationService, userManager)
         {
+            _emailSender = emailSender;
         }
 
         public IActionResult OnGet()
@@ -26,7 +30,7 @@ namespace Sephiroth.Pages.Requests
             Request = new Request
             {
                 Name = "",
-                DateOfToday = DateTime.Now.ToString("yyyy-dd-MM"),
+                DateOfToday = DateTime.Now.ToString("MM/dd/yyyy"),
                 DateOfRequest = "",
                 Reason = "",
                 Email = UserManager.GetUserName(User)
@@ -58,6 +62,7 @@ namespace Sephiroth.Pages.Requests
 
             Context.Request.Add(Request);
             await Context.SaveChangesAsync();
+            await _emailSender.SendStatusUpdateAsync(Request.Email, Request.Status);
 
             return RedirectToPage("./Index");
         }

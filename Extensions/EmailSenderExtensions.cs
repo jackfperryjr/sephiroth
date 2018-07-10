@@ -18,14 +18,24 @@ namespace Sephiroth.Services
 
         public static Task SendResetPasswordAsync(this IEmailSender emailSender, string email, string callbackUrl)
         {
-            return emailSender.SendEmailAsync(email, "Reset Password",
+            return emailSender.SendEmailAsync(email, "Reset password",
                 $"Please reset your password by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
         }
 
         public static Task SendStatusUpdateAsync(this IEmailSender emailSender, string email, RequestStatus status)
         {
-            return emailSender.SendEmailAsync(email, "Request Status Update",
-                $"Your request has been {status}.");
+            string stringStatus = status.ToString();
+
+            if (stringStatus == "Submitted")
+            {
+                return emailSender.SendEmailAsync(email, "Status update of your request",
+                $"Your request has been {stringStatus.ToLower()} for Sephiroth to ask Jenova if it's okay.");
+            }
+            else 
+            {
+                return emailSender.SendEmailAsync(email, "Status update of your request",
+                    $"Your request has been {stringStatus.ToLower()} by Sephiroth. Jenova said so.");
+            }
         }
     }
 }

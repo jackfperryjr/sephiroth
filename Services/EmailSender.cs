@@ -30,7 +30,7 @@ namespace Sephiroth.Services
             var client = new SendGridClient(apiKey);
             var msg = new SendGridMessage()
             {
-                From = new EmailAddress("admin@example.com", "Sephiroth"),
+                From = new EmailAddress("sephiroth@sephiroth.com", "Sephiroth"),
                 Subject = subject,
                 PlainTextContent = message,
                 HtmlContent = message

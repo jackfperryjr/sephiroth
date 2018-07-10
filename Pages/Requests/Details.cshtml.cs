@@ -12,15 +12,18 @@ namespace Sephiroth.Pages.Requests
 {
     public class DetailsModel : DI_BaseModel
     {
+        private readonly IEmailSender _emailSender;
+
         public DetailsModel(
             ApplicationDbContext context,
             IAuthorizationService authorizationService,
-            UserManager<ApplicationUser> userManager) 
+            UserManager<ApplicationUser> userManager,
+            IEmailSender emailSender) 
             : base(context, authorizationService, userManager)
         {
+            _emailSender = emailSender;
         }
 
-        private readonly IEmailSender _emailSender;
         public Request Request { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int id)
@@ -60,7 +63,7 @@ namespace Sephiroth.Pages.Requests
 
 
             // *** Having trouble with this one. ***    
-            //await _emailSender.SendStatusUpdateAsync(request.Email, request.Status);
+            await _emailSender.SendStatusUpdateAsync(request.Email, request.Status);
 
             return RedirectToPage("./Index");
         }
