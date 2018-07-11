@@ -13,7 +13,7 @@ namespace Sephiroth.Services
         public static Task SendEmailConfirmationAsync(this IEmailSender emailSender, string email, string link)
         {
             return emailSender.SendEmailAsync(email, "Please confirm your email",
-                $"<br/><br/>Dear person,<br/><br/>This email is being sent because you registered as a user in my domain. If this was a mistake, you can ignore it. But be wary; someone's using your email address.<br/><br/>If it was you, Jenova thanks you for registering with me. Please follow this <a href='{HtmlEncoder.Default.Encode(link)}'>link</a> to complete your registration and login.<br/><br/><br/>Yours truly,<br/><br/><em>Sephiroth</em>");
+                $"<br/><br/>Dear person,<br/><br/>This email is being sent because you registered as a user in my domain. If this was a mistake, you can ignore it. But be wary; someone's using your email address.<br/><br/>If it was you, Jenova thanks you for registering with me. Please follow this <a href='{HtmlEncoder.Default.Encode(link)}'>link</a> to complete your registration and login.<br/><br/><br/>Yours truly,<br/><br/><em>Sephiroth</em><br/><br/><strong>Please don't respond to this email; nobody is monitoring it.</strong>");
         }
 
         public static Task SendResetPasswordAsync(this IEmailSender emailSender, string email, string callbackUrl)
@@ -29,12 +29,12 @@ namespace Sephiroth.Services
             if (stringStatus == "Submitted")
             {
                 return emailSender.SendEmailAsync(email, "You made a request",
-                $"<br/><br/>Dear {name},<br/><br/>Thank you for submitting a request for time off. Your time is important to me. Ha! Just kidding. But your request has been {stringStatus.ToLower()} to me for consideration. I'll ask Jenova if it's okay.<br/><br/><strong><u>Details</u></strong><br/>Name: {name}<br/>Requested date: {dateOfRequest}.<br/>Requested reason: {reason}.<br/><br/><br/>Yours truly,<br/><br/><em>Sephiroth</em>");
+                $"<br/><br/>Dear {name},<br/><br/>Thank you for submitting a request for time off. Your time is important to me. Ha! Just kidding. But your request has been {stringStatus.ToLower()} to me for consideration. I'll ask Jenova if it's okay.<br/><br/><strong><u>Details</u></strong><br/>Name: {name}<br/>Requested date: {dateOfRequest}.<br/>Requested reason: {reason}.<br/><br/><br/>Yours truly,<br/><br/><em>Sephiroth</em><br/><br/><strong>Please don't respond to this email; nobody is monitoring it.</strong>");
             }
             else 
             {
                 return emailSender.SendEmailAsync(email, "Status update of your request",
-                $"<br/><br/>Dear {name},<br/><br/>This email is being sent because you made a request for time off. After careful consideration your request has been <strong>{stringStatus.ToLower()}</strong> by Jenova. She's my mother.<br/><br/><strong><u>Details</u></strong><br/>Name: {name}<br/>Requested date: {dateOfRequest}.<br/>Requested reason: {reason}.<br/><br/><br/>Yours truly,<br/><br/><em>Sephiroth</em>");
+                $"<br/><br/>Dear {name},<br/><br/>This email is being sent because you made a request for time off. After careful consideration your request has been <strong>{stringStatus.ToLower()}</strong> by Jenova. She's my mother.<br/><br/><strong><u>Details</u></strong><br/>Name: {name}<br/>Requested date: {dateOfRequest}.<br/>Requested reason: {reason}.<br/><br/><br/>Yours truly,<br/><br/><em>Sephiroth</em><br/><br/><strong>Please don't respond to this email; nobody is monitoring it.</strong>");
             }
         }
     }
