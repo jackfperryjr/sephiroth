@@ -2,14 +2,9 @@
 @model IndexModel
 
 <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">
-    <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
-    </ol>
     <div class="carousel-inner" role="listbox">
         <div class="item active">
-            <img src="~/images/sephiroth-1.jpg" alt="Sephiroth" class="img-responsive" />
+            <img src=@Url.Content("~/images/sephiroth-1.jpg") alt="Sephiroth" class="img-responsive" />
             <div class="carousel-caption" role="option">
                 <p>
                     A digitally enhanced, but accurate, portrait of myself.
@@ -17,7 +12,7 @@
             </div>
         </div>
         <div class="item">
-            <img src="~/images/sephiroth-2.jpg" alt="Sephiroth" class="img-responsive" />
+            <img src=@Url.Content("~/images/sephiroth-2.jpg") alt="Sephiroth" class="img-responsive" />
             <div class="carousel-caption" role="option">
                 <p>
                     Some romanticized fan art of myself. Well done.
@@ -25,7 +20,7 @@
             </div>
         </div>
         <div class="item">
-            <img src="~/images/sephiroth-3.jpg" alt="Sephiroth" class="img-responsive" />
+            <img src=@Url.Content("~/images/sephiroth-3.jpg") alt="Sephiroth" class="img-responsive" />
             <div class="carousel-caption" role="option">
                 <p>
                     One of those times I fought Cloud. Ha. Good times.
@@ -45,7 +40,7 @@
 
 <div class="row">
     <div class="col-md-3">
-        <h2 style="color:#b71c1c;">Application uses</h2>
+        <h2 class="text-danger">Application uses</h2>
         <hr/>
         <ul>
             <li>Request time off from... stuff.</li>
@@ -53,7 +48,7 @@
         </ul>
     </div>
     <div class="col-md-3">
-        <h2 style="color:#b71c1c;">How to use</h2>
+        <h2 class="text-danger">How to use</h2>
         <hr/>
         <ul>
             <li>Login or register.</li>
@@ -64,14 +59,14 @@
         </ul>
     </div>
     <div class="col-md-3">
-        <h2 style="color:#b71c1c;">Bio</h2>
+        <h2 class="text-danger">Bio</h2>
         <hr/>
         <p>
             Sephiroth (セフィロス, Sefirosu) is a fictional character in the role-playing video game Final Fantasy VII developed by Square (now Square Enix), where he is the main villain. Character designer Tetsuya Nomura conceived and designed Sephiroth as an antagonist to and direct physical opposite of the game's main character, Cloud Strife. The character was voiced in Japanese by voice actor Toshiyuki Morikawa and in English by both Lance Bass in Kingdom Hearts and George Newbern in all his subsequent appearances.
         </p>
     </div>
     <div class="col-md-3">
-        <h2 style="color:#b71c1c;">News</h2>
+        <h2 class="text-danger">News</h2>
         <hr/>
         <ul>
             <li><a href="https://thelifestream.net/forums/showthread.php?t=6252" target="_blank">Why didn't Sephiroth kill Cloud?</a></li>

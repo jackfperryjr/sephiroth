@@ -28,6 +28,10 @@ body {
     margin: 15px;
 }
 
+.model-page-heading {
+    margin-top: 50px;
+}
+
 /* Hide/rearrange for smaller screens */
 @media screen and (max-width: 767px) {
     /* Hide captions */

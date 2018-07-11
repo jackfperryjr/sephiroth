@@ -6,7 +6,6 @@ using Microsoft.Extensions.Options;
 using SendGrid;
 using SendGrid.Helpers.Mail;
 
-
 namespace Sephiroth.Services
 {
     // This class is used by the application to send email for account confirmation and password reset.
