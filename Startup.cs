@@ -26,7 +26,7 @@ namespace Sephiroth
 
         public void ConfigureServices(IServiceCollection services)
         {
-            /*
+            
             if (Environment.IsProduction())
             {
                 services.AddDbContext<ApplicationDbContext>(options =>
@@ -37,9 +37,9 @@ namespace Sephiroth
                 services.AddDbContext<ApplicationDbContext>(options =>
                     options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
             }
-            */
-            services.AddDbContext<ApplicationDbContext>(options =>
-                    options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
+            
+            //services.AddDbContext<ApplicationDbContext>(options =>
+            //        options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddIdentity<ApplicationUser, IdentityRole>(config =>
             {
