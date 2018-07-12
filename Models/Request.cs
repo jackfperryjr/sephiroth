@@ -12,7 +12,7 @@ namespace Sephiroth.Models
         public string OwnerID { get; set; }
         [Required]
         public string Name { get; set; }
-        [DisplayName("Today's Date")]
+        [DisplayName("Date of Request")]
         [Required]
         public string DateOfToday { get; set; }
         [DisplayName("Date Requested")]

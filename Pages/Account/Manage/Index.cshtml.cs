@@ -110,6 +110,7 @@ namespace Sephiroth.Pages.Account.Manage
                 }
             }
 
+            // Still working on these...
             /*
             if (Input.FirstName != user.FirstName)
             {

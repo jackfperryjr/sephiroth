@@ -1,13 +1,13 @@
-using Sephiroth.Authorization;
-using Sephiroth.Data;
-using Sephiroth.Models;
-using Sephiroth.Services;
+using System.Threading.Tasks;
+using System;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using System.Threading.Tasks;
-using System;
+using Sephiroth.Authorization;
+using Sephiroth.Data;
+using Sephiroth.Models;
+using Sephiroth.Services;
 
 namespace Sephiroth.Pages.Requests
 {
@@ -40,6 +40,8 @@ namespace Sephiroth.Pages.Requests
 
         [BindProperty]
         public Request Request { get; set; }
+        public string StatusMessage { get; set; }
+
 
         public async Task<IActionResult> OnPostAsync()
         {
@@ -60,10 +62,11 @@ namespace Sephiroth.Pages.Requests
             }
 
             Context.Request.Add(Request);
+            StatusMessage = "Request submitted. Watch your email for the details and approval/rejection.";
             await Context.SaveChangesAsync();
             await _emailSender.SendStatusUpdateAsync(Request.Email, Request.Status, Request.Name, Request.DateOfRequest, Request.Reason);
 
-            return RedirectToPage("./Index");
+            return RedirectToPage();
         }
     }
 }

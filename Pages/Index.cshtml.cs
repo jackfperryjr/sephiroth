@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Sephiroth.Pages
 {
-    // requires using Microsoft.AspNetCore.Mvc.RazorPages;
     [AllowAnonymous]
     public class IndexModel : PageModel
     {

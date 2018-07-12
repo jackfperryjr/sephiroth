@@ -1,14 +1,14 @@
-using Sephiroth.Authorization;
-using Sephiroth.Data;
-using Sephiroth.Models;
-using Sephiroth.Services;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Sephiroth.Authorization;
+using Sephiroth.Data;
+using Sephiroth.Models;
+using Sephiroth.Services;
 
 namespace Sephiroth.Pages.Requests
 {
@@ -36,12 +36,11 @@ namespace Sephiroth.Pages.Requests
 
             var currentUserId = UserManager.GetUserId(User);
 
-            // Only approved requests are shown UNLESS you're authorized to see them
-            // or you are the owner.
+            // Admin can see all requests.
+            // User can only see their own requests.
             if (!isAuthorized)
             {
-                requests = requests.Where(c => c.Status == RequestStatus.Approved
-                                            || c.OwnerID == currentUserId);
+                requests = requests.Where(c => c.OwnerID == currentUserId);
             }
 
             Request = await requests.ToListAsync();

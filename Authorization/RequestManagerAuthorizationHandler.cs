@@ -1,8 +1,8 @@
 using System.Threading.Tasks;
-using Sephiroth.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Authorization.Infrastructure;
 using Microsoft.AspNetCore.Identity;
+using Sephiroth.Models;
 
 namespace Sephiroth.Authorization
 {

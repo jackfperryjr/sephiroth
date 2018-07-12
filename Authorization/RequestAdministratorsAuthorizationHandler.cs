@@ -1,10 +1,10 @@
 using System.Threading.Tasks;
-using Sephiroth.Data;
-using Sephiroth.Models;
-using Sephiroth.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Authorization.Infrastructure;
 using Microsoft.AspNetCore.Mvc;
+using Sephiroth.Data;
+using Sephiroth.Models;
+using Sephiroth.Services;
 
 namespace Sephiroth.Authorization
 {
@@ -21,7 +21,7 @@ namespace Sephiroth.Authorization
                 return Task.CompletedTask;
             }
 
-            // Administrators can do anything.
+            // Administrator can do anything.
             if (context.User.IsInRole(Constants.RequestAdministratorsRole))
             {
                 context.Succeed(requirement);

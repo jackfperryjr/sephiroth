@@ -1,13 +1,12 @@
-using Sephiroth.Authorization;
-using Sephiroth.Models;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using Sephiroth.Authorization;
+using Sephiroth.Models;
 
-// dotnet aspnet-codegenerator razorpage -m Request -dc ApplicationDbContext -outDir Pages\Requests --referenceScriptLibraries
 namespace Sephiroth.Data
 {
     public static class SeedData
@@ -21,15 +20,14 @@ namespace Sephiroth.Data
                 // The password is set with the following command:
                 // dotnet user-secrets set SeedUserPW <pw>
                 // The admin user can do anything
-
                 var adminID = await EnsureUser(serviceProvider, testUserPw, "sephiroth@sephiroth.com");
                 await EnsureRole(serviceProvider, adminID, Constants.RequestAdministratorsRole);
 
-                // allowed user can create and edit requests that they create
-                var uid = await EnsureUser(serviceProvider, testUserPw, "manager@sephiroth.com");
-                await EnsureRole(serviceProvider, uid, Constants.RequestManagersRole);
+                // Allowed user can view and edit requests that they create
+                // (They are not assigned a role.)
+                var mentorID = await EnsureUser(serviceProvider, testUserPw, "mentor@sephiroth.com");
 
-                SeedDB(context, adminID);
+                SeedDB(context, adminID, mentorID);
             }
         }
       
@@ -49,7 +47,7 @@ namespace Sephiroth.Data
         }
 
         private static async Task<IdentityResult> EnsureRole(IServiceProvider serviceProvider,
-                                                                      string uid, string role)
+                                                                      string mentorID, string role)
         {
             IdentityResult IR = null;
             var roleManager = serviceProvider.GetService<RoleManager<IdentityRole>>();
@@ -60,20 +58,23 @@ namespace Sephiroth.Data
             }
 
             var userManager = serviceProvider.GetService<UserManager<ApplicationUser>>();
-
-            var user = await userManager.FindByIdAsync(uid);
+            var user = await userManager.FindByIdAsync(mentorID);
 
             IR = await userManager.AddToRoleAsync(user, role);
 
             return IR;
         }
-        public static void SeedDB(ApplicationDbContext context, string adminID)
+        public static void SeedDB(ApplicationDbContext context, string adminID, string mentorID)
         {
             if (context.Request.Any())
             {
-                return;   // DB has been seeded
+                // Database has been seeded.
+                return;   
             }
 
+            // Below is for seeding purposes only.
+            // The Final Fantasy character's requests are tagged with adminID.
+            // There are two requests tagged with mentorID.
             context.Request.AddRange(
                 new Request
                 {
@@ -134,6 +135,26 @@ namespace Sephiroth.Data
                     Email = "cloud.strife@fantasy.com",
                     Status = RequestStatus.Rejected,
                     OwnerID = adminID
+                },
+                new Request
+                {
+                    Name = "Mentor",
+                    DateOfToday = DateTime.Now.ToString("MM/dd/yyyy"),
+                    DateOfRequest = "07/20/2018",
+                    Reason = "Not doing Code Louisville stuff",
+                    Email = "mentor@sephiroth.com",
+                    Status = RequestStatus.Submitted,
+                    OwnerID = adminID
+                },
+                new Request
+                {
+                    Name = "Mentor",
+                    DateOfToday = DateTime.Now.ToString("MM/dd/yyyy"),
+                    DateOfRequest = "07/27/2018",
+                    Reason = "Checking Code Louisville projects",
+                    Email = "mentor@sephiroth.com",
+                    Status = RequestStatus.Approved,
+                    OwnerID = mentorID
                 }
              );
             context.SaveChanges();

@@ -7,9 +7,9 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Authorization;
 using Sephiroth.Data;
 using Sephiroth.Services;
-using Microsoft.AspNetCore.Authorization;
 
 namespace Sephiroth.Pages.Account
 {
@@ -83,9 +83,9 @@ namespace Sephiroth.Pages.Account
                     var callbackUrl = Url.EmailConfirmationLink(user.Id, code, Request.Scheme);
                     await _emailSender.SendEmailConfirmationAsync(Input.Email, callbackUrl);
 
-                    //await _signInManager.SignInAsync(user, isPersistent: false);
-                    StatusMessage = "You should receive a confirmation email shortly. Please follow the link inside to finish registering and login!";
-                    //return LocalRedirect(Url.GetLocalUrl(returnUrl));
+                    // await _signInManager.SignInAsync(user, isPersistent: false);
+
+                    StatusMessage = "You should receive a confirmation email. Jenova requires you to confirm that email you used is actually yours. Then you can login.";
                     return RedirectToPage(returnUrl);
                 }
                 foreach (var error in result.Errors)

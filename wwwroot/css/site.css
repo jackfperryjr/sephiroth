@@ -32,10 +32,31 @@ body {
     margin-top: 50px;
 }
 
+.navbar-mod {
+    margin-top: 5px;
+}
+
+.sephiroth-table {
+    background-color:#000;
+    color:#f7f7f7;
+}
+
+.sephiroth-brand {
+    width: 80px;
+}
+
+.sephiroth-navbar {
+    background-color:#000;
+}
+
 /* Hide/rearrange for smaller screens */
 @media screen and (max-width: 767px) {
     /* Hide captions */
     .carousel-caption {
         display: none;
+    }
+
+    .navbar-mod {
+        margin-top: 50px;
     }
 }

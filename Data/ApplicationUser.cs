@@ -7,7 +7,8 @@ using Microsoft.AspNetCore.Identity;
 
 namespace Sephiroth.Data
 {
-    // Add profile data for application users by adding properties to the ApplicationUser class
+    // Add profile data for application users by adding properties to the ApplicationUser class.
+    // I added FirstName and LastName to the ApplicationUser.
     public class ApplicationUser : IdentityUser
     {
         public string FirstName { get; set; }

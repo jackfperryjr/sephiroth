@@ -1,6 +1,3 @@
-using Sephiroth.Authorization;
-using Sephiroth.Data;
-using Sephiroth.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -10,6 +7,9 @@ using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Sephiroth.Authorization;
+using Sephiroth.Services;
+using Sephiroth.Data;
 
 namespace Sephiroth
 {
@@ -26,6 +26,7 @@ namespace Sephiroth
 
         public void ConfigureServices(IServiceCollection services)
         {
+            /*
             if (Environment.IsProduction())
             {
                 services.AddDbContext<ApplicationDbContext>(options =>
@@ -36,13 +37,10 @@ namespace Sephiroth
                 services.AddDbContext<ApplicationDbContext>(options =>
                     options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
             }
-
-            /*
-            services.AddIdentity<ApplicationUser, IdentityRole>()
-                .AddEntityFrameworkStores<ApplicationDbContext>()
-                .AddDefaultTokenProviders();
             */
-            
+            services.AddDbContext<ApplicationDbContext>(options =>
+                    options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
+
             services.AddIdentity<ApplicationUser, IdentityRole>(config =>
             {
                 config.SignIn.RequireConfirmedEmail = true;
@@ -50,9 +48,8 @@ namespace Sephiroth
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
             
-
             var skipHTTPS = Configuration.GetValue<bool>("LocalTest:skipHTTPS");
-            // requires using Microsoft.AspNetCore.Mvc;
+            
             services.Configure<MvcOptions>(options =>
             {
                 // Set LocalTest:skipHTTPS to true to skip SSL requrement in 
@@ -63,20 +60,8 @@ namespace Sephiroth
                 }
             });
 
-            services.AddMvc();
-                //.AddRazorPagesOptions(options =>
-                //{
-                //    options.Conventions.AuthorizeFolder("/Account/Manage");
-                //    options.Conventions.AuthorizePage("/Account/Logout");
-                //});
-
             services.AddSingleton<IEmailSender, EmailSender>();
-            
             services.Configure<AuthMessageSenderOptions>(Configuration);
-
-           
-            // requires: using Microsoft.AspNetCore.Authorization;
-            //           using Microsoft.AspNetCore.Mvc.Authorization;
             services.AddMvc(config =>
             {
                 var policy = new AuthorizationPolicyBuilder()
@@ -110,9 +95,7 @@ namespace Sephiroth
             }
 
             app.UseStaticFiles();
-
             app.UseAuthentication();
-
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
