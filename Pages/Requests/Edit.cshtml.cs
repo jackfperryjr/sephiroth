@@ -22,6 +22,7 @@ namespace Sephiroth.Pages.Requests
         }
 
         [BindProperty]
+        #pragma warning disable 108
         public Request Request { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int id)

@@ -25,8 +25,16 @@ namespace Sephiroth.Pages.Requests
             _emailSender = emailSender;
         }
 
-        public IActionResult OnGet()
+        [BindProperty]
+        #pragma warning disable 108
+        public Request Request { get; set; }
+        public string StatusMessage { get; set; }
+        public string ReturnUrl { get; set; }
+
+        public IActionResult OnGet(string returnUrl = null)
         {
+            ReturnUrl = returnUrl;
+
             Request = new Request
             {
                 Name = "",
@@ -38,13 +46,9 @@ namespace Sephiroth.Pages.Requests
             return Page();
         }
 
-        [BindProperty]
-        public Request Request { get; set; }
-        public string StatusMessage { get; set; }
-
-
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
+            ReturnUrl = returnUrl;
             if (!ModelState.IsValid)
             {
                 return Page();
@@ -62,11 +66,16 @@ namespace Sephiroth.Pages.Requests
             }
 
             Context.Request.Add(Request);
-            StatusMessage = "Request submitted. Watch your email for the details and approval/rejection.";
             await Context.SaveChangesAsync();
+
+            // As noted in the Extensions file, this needs to be done dynamically.
+            // But for now...
+            await _emailSender.SendAdminUpdateAsync(Request.Name, Request.DateOfRequest, Request.Reason);
             await _emailSender.SendStatusUpdateAsync(Request.Email, Request.Status, Request.Name, Request.DateOfRequest, Request.Reason);
 
-            return RedirectToPage();
+            // This isn't displaying; I don't know why.
+            StatusMessage = "Request submitted. Check your email for the details and approval/rejection.";
+            return RedirectToPage(returnUrl);
         }
     }
 }

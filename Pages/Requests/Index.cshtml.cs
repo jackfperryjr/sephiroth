@@ -24,6 +24,8 @@ namespace Sephiroth.Pages.Requests
         {
             _emailSender = emailSender;
         }
+        
+        #pragma warning disable 108
         public IList<Request> Request { get; set; }
 
         public async Task OnGetAsync()

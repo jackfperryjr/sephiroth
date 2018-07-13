@@ -37,5 +37,15 @@ namespace Sephiroth.Services
                 $"<br/><br/>Dear {name},<br/><br/>This email is being sent because you made a request for time off. After careful consideration your request has been <strong>{stringStatus.ToLower()}</strong> by Jenova. She's my mother.<br/><br/><strong><u>Details</u></strong><br/>Name: {name}<br/>Requested date: {dateOfRequest}.<br/>Requested reason: {reason}.<br/><br/><br/>Yours truly,<br/><br/><em>Sephiroth</em><br/><br/><strong>Please don't respond to this email; nobody is monitoring it.</strong>");
             }
         }
+
+        public static Task SendAdminUpdateAsync(this IEmailSender emailSender, string name, string dateOfRequest, string reason)
+        {
+            // For testing.
+            // Eventually need to set this dynamically.
+            string email = "jack.franklin.perryjr@gmail.com";
+
+            return emailSender.SendEmailAsync(email, "A user made a request",
+            $"<br/><br/>Dear Sephiroth,<br/><br/>A user has submitted a request for time off.<br/><br/><strong><u>Details</u></strong><br/>Name: {name}<br/>Requested date: {dateOfRequest}.<br/>Requested reason: {reason}.<br/><br/><br/>Yours truly,<br/><br/><em>This automated email service</em><br/><br/><strong>Please don't respond to this email; nobody is monitoring it.</strong>");
+        }
     }
 }
