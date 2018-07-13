@@ -40,6 +40,7 @@ namespace Sephiroth.Pages.Requests
             {
                 Name = "",
                 DateOfToday = DateTime.Now.ToString("MM/dd/yyyy"),
+                DateOfRequest = DateTime.Now.ToString("MM/dd/yyyy"),
                 Reason = "",
                 Email = UserManager.GetUserName(User)
             };

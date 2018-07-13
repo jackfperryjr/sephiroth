@@ -64,12 +64,12 @@
                                     <div class="modal-body">
                                         <div class="row">
                                             <div class="col-md-12 text-left">
-                                                <h4><strong>@Html.DisplayNameFor(modelItem => item.Name)</strong>: @Html.DisplayFor(modelItem => item.Name)</h4>
-                                                <h4><strong>@Html.DisplayNameFor(modelItem => item.DateOfToday)</strong>: @Html.DisplayFor(modelItem => item.DateOfToday)</h4>
-                                                <h4><strong>@Html.DisplayNameFor(modelItem => item.DateOfRequest)</strong>: @Html.DisplayFor(modelItem => item.DateOfRequest)</h4>
-                                                <h4><strong>@Html.DisplayNameFor(modelItem => item.Reason)</strong>: @Html.DisplayFor(modelItem => item.Reason)</h4>
-                                                <h4><strong>@Html.DisplayNameFor(modelItem => item.Email)</strong>: @Html.DisplayFor(modelItem => item.Email)</h4>
-                                                <h4><strong>@Html.DisplayNameFor(modelItem => item.Status)</strong>: @Html.DisplayFor(modelItem => item.Status)</h4>
+                                                <h4><strong>Requester's name</strong>: @item.Name</h4>
+                                                <h4><strong>Requester's email</strong>: @item.Email</h4>
+                                                <h4><strong>Request received</strong>: @item.DateOfToday</h4>
+                                                <h4><strong>Requested date</strong>: @item.DateOfRequest</h4>
+                                                <h4><strong>Requested reason</strong>: @item.Reason</h4>
+                                                <h4><strong>Request status</strong>: @item.Status</h4>
                                             </div>
                                         </div> 
                                     </div>
@@ -138,11 +138,14 @@
                                         </div>
                                         <div class="modal-body">
                                             <h4 class="text-danger">Are you sure you want to delete this request?</h4>
+                                            <br/>
                                             <h4><strong><u>Details</u></strong></h4>
-                                            <h4>Requester's name: @item.Name</h4>
-                                            <h4>Requested date: @item.DateOfRequest</h4>
-                                            <h4>Requested reason: @item.Reason</h4>
-                                            <h4>Request status: @item.Status</h4>
+                                            <h4><strong>Requester's name</strong>: @item.Name</h4>
+                                            <h4><strong>Requester's email</strong>: @item.Email</h4>
+                                            <h4><strong>Request received</strong>: @item.DateOfToday</h4>
+                                            <h4><strong>Requested date</strong>: @item.DateOfRequest</h4>
+                                            <h4><strong>Requested reason</strong>: @item.Reason</h4>
+                                            <h4><strong>Request status</strong>: @item.Status</h4>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="submit" class="btn btn-danger">Yes</button>
@@ -159,5 +162,5 @@
     </tbody>
 </table>
 <p>
-    <a asp-page="Create" class="btn btn-primary">Make Request</a>
+    <a asp-page="Create" class="btn btn-primary">Create a Request</a>
 </p>

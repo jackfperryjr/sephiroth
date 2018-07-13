@@ -42,14 +42,11 @@
                 <span asp-validation-for="Request.Email" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <a class="btn btn-default" asp-page="./Index">Cancel</a>
                 <input type="submit" value="Submit" class="btn btn-primary" />
             </div>
         </form>
     </div>
-</div>
-
-<div>
-    <a asp-page="Index">Back to List</a>
 </div>
 
 @section Scripts {
