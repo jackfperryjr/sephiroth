@@ -34,7 +34,20 @@
                     @Html.DisplayFor(modelItem => item.DateOfToday)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Status)
+                    <strong>
+                        @if (item.Status == RequestStatus.Submitted)
+                        {
+                        <span>@Html.DisplayFor(modelItem => item.Status)</span>
+                        }
+                        @if (item.Status == RequestStatus.Approved)
+                        {
+                        <span style="color:#00C851;">@Html.DisplayFor(modelItem => item.Status)</span>
+                        }
+                        @if (item.Status == RequestStatus.Rejected)
+                        {
+                        <span style="color:#ff4444;">@Html.DisplayFor(modelItem => item.Status)</span>
+                        }
+                    </strong>
                 </td>
                 <td>
                     <a data-toggle="modal" href="@("#viewModal" + item.RequestId)">Details</a>
