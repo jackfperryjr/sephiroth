@@ -28,6 +28,7 @@ namespace Sephiroth.Pages.Requests
         [BindProperty]
         #pragma warning disable 108
         public Request Request { get; set; }
+        [TempData]
         public string StatusMessage { get; set; }
         public string ReturnUrl { get; set; }
 

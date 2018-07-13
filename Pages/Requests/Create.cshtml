@@ -9,7 +9,7 @@
 
 <h2>Submit</h2>
 
-@Html.Partial("_StatusMessage", Model.StatusMessage)
+@await Html.PartialAsync("_StatusMessage", Model.StatusMessage)
 <h4>Request</h4>
 <hr />
 <div class="row">
