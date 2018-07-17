@@ -69,7 +69,20 @@
                                                 <h4><strong>Request received</strong>: @item.DateOfToday</h4>
                                                 <h4><strong>Requested date</strong>: @item.DateOfRequest</h4>
                                                 <h4><strong>Requested reason</strong>: @item.Reason</h4>
-                                                <h4><strong>Request status</strong>: @item.Status</h4>
+                                                <h4><strong>Request status</strong>: 
+                                                @if (item.Status == RequestStatus.Submitted)
+                                                {
+                                                <span>@item.Status</span>
+                                                }
+                                                @if (item.Status == RequestStatus.Approved)
+                                                {
+                                                    <span style="color:#00C851;">@item.Status</span>
+                                                }
+                                                @if (item.Status == RequestStatus.Rejected)
+                                                {
+                                                    <span style="color:#ff4444;">@item.Status</span>
+                                                }                                                
+                                                </h4>
                                             </div>
                                         </div> 
                                     </div>
@@ -145,7 +158,20 @@
                                             <h4><strong>Request received</strong>: @item.DateOfToday</h4>
                                             <h4><strong>Requested date</strong>: @item.DateOfRequest</h4>
                                             <h4><strong>Requested reason</strong>: @item.Reason</h4>
-                                            <h4><strong>Request status</strong>: @item.Status</h4>
+                                            <h4><strong>Request status</strong>: 
+                                            @if (item.Status == RequestStatus.Submitted)
+                                            {
+                                                <span>@item.Status</span>
+                                            }
+                                            @if (item.Status == RequestStatus.Approved)
+                                            {
+                                                <span style="color:#00C851;">@item.Status</span>
+                                            }
+                                            @if (item.Status == RequestStatus.Rejected)
+                                            {
+                                                <span style="color:#ff4444;">@item.Status</span>
+                                            }
+                                            </h4>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="submit" class="btn btn-danger">Yes</button>
